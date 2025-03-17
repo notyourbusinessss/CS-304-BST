@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 
 
@@ -7,10 +8,10 @@ class BST {
     
 private:
     struct TreeNode {
-    T data;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(const T& value) : data(value), left(nullptr), right(nullptr) {}
+        T data;
+        TreeNode* left;
+        TreeNode* right;
+        TreeNode(const T& value) : data(value), left(nullptr), right(nullptr) {}
     };
     TreeNode* root;
     void insertHelper(TreeNode*& node, const T& value);
@@ -19,12 +20,28 @@ private:
     TreeNode* copyTree(TreeNode* other);
 
 public:
-    BST(); // Constructor
-    ~BST(); // Destructor
-    BST(const BST& other); // Copy Constructor
-    BST& operator=(const BST& other); // Copy Assignment
-    BST(BST&& other) noexcept; // Move Constructor
-    BST& operator=(BST&& other) noexcept; // Move Assignment
-    void insert(const T& value);
-    std::vector<T> preOrderTraversal();
+    BST(){ // Constructor
+
+    }
+    ~BST(){ // Destructor
+
+    }
+    BST(const BST& other){ // Copy Constructor
+
+    } 
+    BST& operator=(const BST& other){ // Copy Assignment
+
+    }
+    BST(BST&& other) noexcept{ // Move Constructor
+        
+    }
+    BST& operator=(BST&& other) noexcept{ // Move Assignment
+        
+    }
+    void insert(const T& value){
+
+    }
+    std::vector<T> preOrderTraversal(){
+
+    }
 };
