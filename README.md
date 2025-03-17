@@ -24,4 +24,4 @@ and the grading
 ![ AAHHH !](images/Grading.png)
 
 # The actual file 
-here is the file : ![Link and stuff](Documents/CS304_A4_treesort.pdf)
+Here is the file : ![Link and stuff](Documents/CS304_A4_treesort.pdf)
