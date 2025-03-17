@@ -15,10 +15,10 @@ Bonus 2 : Use a self Balancing tree .
 
 Here is a quick pixaleted tables of the time complexit difference
 
-![alt text](images/Time.png)
+![Boo !!!](images/Time.png)
 
 # Grading
 
 and the grading
 
-![alt text](images/Grading.png)
+![ AAHHH !](images/Grading.png)
