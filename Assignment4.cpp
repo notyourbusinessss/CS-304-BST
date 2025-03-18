@@ -33,13 +33,13 @@ class BST {
                 node->amount += 1;
             }
         }
-        void preOrderTraversalHelper(TreeNode* node, std::vector<T>& Vector){
+        void preOrderTraversalHelper(TreeNode*& node, std::vector<T>& Vector){
             if(!node){
                 return;
             }
-            for(int i = 0 ; i < node->amount; ++i){
+            //for(int i = 0 ; i < node->amount; ++i){
                 Vector.push_back(node->data);
-            }
+            //}
             preOrderTraversalHelper(node->left,Vector);
             preOrderTraversalHelper(node->right,Vector);
             return;
@@ -125,11 +125,9 @@ class BST {
             if(!root){
                 return ToGive;
             }
-            for(int i = 0 ; i < root->amount; ++i){
-                ToGive.push_back(root->data);
-            }
-            preOrderTraversalHelper(root->left,ToGive);
-            preOrderTraversalHelper(root->right,ToGive);
+
+            preOrderTraversalHelper(root,ToGive);
+
             return ToGive;
         }
 };
