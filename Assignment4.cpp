@@ -69,7 +69,16 @@ class BST {
             delete node;
 
         }
-        TreeNode* copyTree(TreeNode* other);
+        TreeNode* copyTree(TreeNode* other){
+            if(!node){
+                return nullptr;
+            }
+            TreeNode* no = new TreeNode(other->data);
+            no->left = copyTree(other->left);
+            no->right = copyTree(other->right)
+            return no;
+
+        }
 
     public:
 
@@ -83,6 +92,8 @@ class BST {
             destroyTree(root);
         }
         BST(const BST& other){ // Copy Constructor
+
+            root = new TreeNode(copyTree(other.root));
 
         } 
         BST& operator=(const BST& other){ // Copy Assignment
