@@ -77,7 +77,6 @@ class BST {
             no->left = copyTree(other->left);
             no->right = copyTree(other->right);
             return no;
-
         }
 
     public:
