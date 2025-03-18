@@ -198,7 +198,7 @@ int main(){
 
     BST<std::string> ss ;
     ss.insert("Hi");
-    ss.insert("bonjour");
+    ss.insert("Bonjour");
     ss.insert("Konichiwa");
     ss.insert("GutenTag");
 
