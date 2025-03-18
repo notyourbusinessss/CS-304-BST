@@ -33,8 +33,12 @@ class BST {
                 node->amount += 1;
             }
         }
-        void preOrderTraversalHelper(TreeNode* node, std::vector<T>& sortedVector);
-        void destroyTree(TreeNode* node){
+        void preOrderTraversalHelper(TreeNode* node, std::vector<T>& sortedVector){
+
+        }
+
+
+        void destroyTree(TreeNode* node){ // recursicive that'll keep traversing a tree until its end and then delete it's leaf
             if(!node){
                 return;
             }
@@ -68,16 +72,16 @@ class BST {
         BST& operator=(BST&& other) noexcept{ // Move Assignment
             
         }
-        void insert(const T& value){
+        void insert(const T& value){ //this 
             if(!root){
                 root = new TreeNode(value);
             } 
             else if (value < root->data)
             {
-                insertHelper(root->left,value);
+                insertHelper(root->left,value); // call the inserthelper for right tree
             }
             else if (value > root->data){
-                insertHelper(root->right,value);
+                insertHelper(root->right,value); // call the inserthelp for left tree
             }
             else if(value == root->data){
                 root->amount += 1;
@@ -85,7 +89,7 @@ class BST {
             
 
         }
-        static std::ostream& InOrder(std::ostream &out,TreeNode* cur){
+        static std::ostream& InOrder(std::ostream &out,TreeNode* cur){ //just a recursive InOrder for printing it like an array
             if (cur)
             {
                 InOrder(out, cur->left);
@@ -100,7 +104,7 @@ class BST {
 
 
 
-        friend std::ostream& operator<<(std::ostream& os,const BST<T>& given){
+        friend std::ostream& operator<<(std::ostream& os,const BST<T>& given){ // here very important, make friend, have a const BST<T>& <- reference is important
             return InOrder(os,given.root) <<"\b\b " << std::endl;
 
         
