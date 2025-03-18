@@ -123,5 +123,6 @@ int main(){
     George.insert(5);
     George.insert(2);
     George.insert(8);
+    George.insert(4);
     std::cout << George;
 }
