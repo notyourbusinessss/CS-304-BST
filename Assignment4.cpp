@@ -33,7 +33,16 @@ class BST {
                 node->amount += 1;
             }
         }
-        void preOrderTraversalHelper(TreeNode* node, std::vector<T>& sortedVector){
+        void preOrderTraversalHelper(TreeNode* node, std::vector<T>& Vector){
+            if(!node){
+                return;
+            }
+            for(int i = 0 ; i < node->amount; ++i){
+                Vector.push_back(node->data);
+            }
+            preOrderTraversalHelper(node->left,Vector);
+            preOrderTraversalHelper(node->right,Vector);
+            return;
 
         }
 
@@ -105,17 +114,35 @@ class BST {
 
 
         friend std::ostream& operator<<(std::ostream& os,const BST<T>& given){ // here very important, make friend, have a const BST<T>& <- reference is important
-            return InOrder(os,given.root) <<"\b\b " << std::endl;
+            return InOrder(os,given.root) <<"\b\b ";
 
         
         }
 
 
         std::vector<T> preOrderTraversal(){
-
+            std::vector<T> ToGive;
+            if(!root){
+                return ToGive;
+            }
+            for(int i = 0 ; i < root->amount; ++i){
+                ToGive.push_back(root->data);
+            }
+            preOrderTraversalHelper(root->left,ToGive);
+            preOrderTraversalHelper(root->right,ToGive);
+            return ToGive;
         }
 };
 
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const std::vector<T> given){
+    os << "[";
+    for(int i : given){
+        os << given[i] << ", ";
+    }
+    os << "\b\b]";
+    return os;
+}
 
 int main(){
     int g;
@@ -124,5 +151,8 @@ int main(){
     George.insert(2);
     George.insert(8);
     George.insert(4);
-    std::cout << George;
+    std::vector<int> preOrder = George.preOrderTraversal();
+
+    std::cout << George <<std::endl;
+    std::cout << preOrder;
 }
