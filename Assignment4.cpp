@@ -60,7 +60,7 @@ class BST {
         }
 
 
-        void destroyTree(TreeNode* node){ // recursicive that'll keep traversing a tree until its end and then delete it's leaf
+        friend void destroyTree(TreeNode* node){ // recursicive that'll keep traversing a tree until its end and then delete it's leaf
             if(!node){
                 return;
             }
@@ -69,14 +69,17 @@ class BST {
             delete node;
 
         }
-        TreeNode* copyTree(TreeNode* other){
-            if(!other){
+        friend TreeNode* copyTreeHelp(TreeNode* other){
+            if(other){
+                TreeNode* one = new TreeNode(other->data);
+                one->left = copyTreeHelp(other->left);
+                one->right = copyTreeHelp(other->right);
+                return one;
+
+            }
+            else{
                 return nullptr;
             }
-            TreeNode* no = new TreeNode(other->data);
-            no->left = copyTree(other->left);
-            no->right = copyTree(other->right);
-            return no;
         }
 
     public:
@@ -90,21 +93,20 @@ class BST {
         ~BST(){ // Destructor
             destroyTree(root);
         }
-        BST(const BST& other){ // Copy Constructor
+        BST(const BST& other) : root(copyTreeHelp(other.root)){
 
-            root = new TreeNode(copyTree(other.root));
-
-        } 
+        }
+        
         //###################################################################################################################################################
         BST& operator=(const BST& other){ // Copy Assignment TO FNISH FOR THE LOVE OF GOD THIS IS WHAT IS WRONG 
             if(this != &other){
-                this->destroyTree();
+                destroyTree(root);
                 TreeNode* rot = other.root;
-                root = new TreeNode(copyTree(other.root));
+                root = new TreeNode(copyTreeHelp(rot));
             }
         }
         //###################################################################################################################################################
-
+        
         BST(BST&& other) noexcept{ // Move Constructor
             
         }
@@ -197,20 +199,21 @@ int main(){
     ss.insert("Konichiwa");
     ss.insert("GutenTag");
 
-    BST<int> G2;
-    G2 = George;
-    std::cout << "tree : " << G2 <<std::endl;   
-
+    
     std::cout << "-----------------------" << std::endl;
-
+    
     std::cout << "tree : " << George <<std::endl;
     std::cout << "Pre Order : " <<George.preOrderTraversal() << std::endl;
     std::cout << "in Order :  " <<George.inOrderTraversal() << std::endl;
-
+    
     std::cout << "-----------------------" << std::endl;
-
+    
     std::cout << "tree : " << ss << std::endl;
     std::cout << "Pre Order : " << ss.preOrderTraversal() << std::endl;
     std::cout << "In Order :  " <<ss.inOrderTraversal() << std::endl;
-
-}
+    George.insert(10);
+    BST<int> G2 = George;
+    George.insert(10);
+    G2 = George;
+    std::cout << "tree : " << G2 <<std::endl;   
+}   
