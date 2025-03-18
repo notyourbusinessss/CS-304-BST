@@ -37,11 +37,24 @@ class BST {
             if(!node){
                 return;
             }
-            //for(int i = 0 ; i < node->amount; ++i){
+            for(int i = 0 ; i < node->amount; ++i){
                 Vector.push_back(node->data);
-            //}
+            }
             preOrderTraversalHelper(node->left,Vector);
             preOrderTraversalHelper(node->right,Vector);
+            return;
+
+        }
+
+        void inOrderTraversalHelper(TreeNode*& node, std::vector<T>& Vector){
+            if(!node){
+                return;
+            }
+            inOrderTraversalHelper(node->left,Vector);
+            for(int i = 0 ; i < node->amount; ++i){
+                Vector.push_back(node->data);
+            }
+            inOrderTraversalHelper(node->right,Vector);
             return;
 
         }
@@ -60,9 +73,9 @@ class BST {
 
     public:
 
-        BST(T value){
-
-        }
+        //BST(T value){
+        //    root = new treeNode(value);
+        //}
         BST() : root(nullptr){ // Constructor
 
         }
@@ -130,13 +143,23 @@ class BST {
 
             return ToGive;
         }
+        std::vector<T> inOrderTraversal(){
+            std::vector<T> ToGive;
+            if(!root){
+                return ToGive;
+            }
+
+            inOrderTraversalHelper(root,ToGive);
+
+            return ToGive;
+        }
 };
 
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const std::vector<T> given){
     os << "[";
-    for(int i : given){
-        os << given[i] << ", ";
+    for(T i : given){
+        os << i << ", ";
     }
     os << "\b\b]";
     return os;
@@ -151,6 +174,20 @@ int main(){
     George.insert(4);
     std::vector<int> preOrder = George.preOrderTraversal();
 
-    std::cout << George <<std::endl;
-    std::cout << preOrder;
+    BST<std::string> ss ;
+    ss.insert("Hi");
+    ss.insert("bonjour");
+    ss.insert("Konichiwa");
+    ss.insert("GutenTag");
+
+    std::cout << "tree : " << George <<std::endl;
+    std::cout << "Pre Order : " <<George.preOrderTraversal() << std::endl;
+    std::cout << "in Order :  " <<George.inOrderTraversal() << std::endl;
+
+    std::cout << "-----------------------" << std::endl;
+
+    std::cout << "tree : " << ss << std::endl;
+    std::cout << "Pre Order : " << ss.preOrderTraversal() << std::endl;
+    std::cout << "In Order :  " <<ss.inOrderTraversal() << std::endl;
+
 }
