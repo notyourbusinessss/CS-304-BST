@@ -110,7 +110,8 @@ class BST {
         //###################################################################################################################################################
         
         BST(BST&& other) noexcept{ // Move Constructor
-            
+            root = other.root;
+            destroyTree(other.root);
         }
         BST& operator=(BST&& other) noexcept{ // Move Assignment
             
