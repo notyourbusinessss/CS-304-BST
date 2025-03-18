@@ -15,7 +15,9 @@ class BST {
             //this is the constructor
             TreeNode(const T& value) : data(value), left(nullptr), right(nullptr), amount(1) {}
         };
+        public:
         TreeNode* root;
+        private:
         void insertHelper(TreeNode*& node, const T& value){
             if(!node){
                 node = new TreeNode(value);
@@ -25,10 +27,10 @@ class BST {
                 insertHelper(node->left,value);
             }
             else if (value > node->data){
-                insertHelper(node->data);
+                insertHelper(node->right,value);
             }
             else if(value == node->data){
-                ++node->amount;
+                node->amount += 1;
             }
         }
         void preOrderTraversalHelper(TreeNode* node, std::vector<T>& sortedVector);
@@ -68,22 +70,42 @@ class BST {
         }
         void insert(const T& value){
             if(!root){
-                root = value;
+                root = new TreeNode(value);
             } 
             else if (value < root->data)
             {
                 insertHelper(root->left,value);
             }
             else if (value > root->data){
-                insertHelper(root->data);
+                insertHelper(root->right,value);
             }
             else if(value == root->data){
-                ++root->amount;
+                root->amount += 1;
             }
             
 
         }
-        //std::ofstream operator<<();
+        static std::ostream& InOrder(std::ostream &out,TreeNode* cur){
+            if (cur)
+            {
+                InOrder(out, cur->left);
+                for(int i = 0 ; i < cur->amount ; ++i){
+                    out << cur->data << ", " ;
+                }
+                InOrder(out, cur->right);
+            }
+            return out;
+        }
+
+
+
+        friend std::ostream& operator<<(std::ostream& os,const BST<T>& given){
+            return InOrder(os,given.root) <<"\b\b " << std::endl;
+
+        
+        }
+
+
         std::vector<T> preOrderTraversal(){
 
         }
@@ -93,4 +115,8 @@ class BST {
 int main(){
     int g;
     BST<int> George;
+    George.insert(5);
+    George.insert(2);
+    George.insert(8);
+    std::cout << George;
 }
