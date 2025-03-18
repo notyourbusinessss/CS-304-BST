@@ -83,7 +83,7 @@ class BST {
             
 
         }
-        std::ofstream operator<<();
+        //std::ofstream operator<<();
         std::vector<T> preOrderTraversal(){
 
         }
@@ -92,4 +92,5 @@ class BST {
 
 int main(){
     int g;
+    BST<int> George;
 }
