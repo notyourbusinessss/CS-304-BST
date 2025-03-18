@@ -72,6 +72,7 @@ class BST {
         friend TreeNode* copyTreeHelp(TreeNode* other){
             if(other){
                 TreeNode* one = new TreeNode(other->data);
+                one->amount = other->amount;
                 one->left = copyTreeHelp(other->left);
                 one->right = copyTreeHelp(other->right);
                 return one;
@@ -99,11 +100,12 @@ class BST {
         
         //###################################################################################################################################################
         BST& operator=(const BST& other){ // Copy Assignment TO FNISH FOR THE LOVE OF GOD THIS IS WHAT IS WRONG 
-            if(this != &other){
-                destroyTree(root);
-                TreeNode* rot = other.root;
-                root = new TreeNode(copyTreeHelp(rot));
+            if(this == &other){
+                return *this;
             }
+            destroyTree(root);
+            root = copyTreeHelp(other.root);
+            return *this;
         }
         //###################################################################################################################################################
         
@@ -216,4 +218,5 @@ int main(){
     George.insert(10);
     G2 = George;
     std::cout << "tree : " << G2 <<std::endl;   
+    std::cout << "tree : " << George <<std::endl;   
 }   
