@@ -30,9 +30,22 @@ Here is a quick pixaleted tables of the time complexit difference
 ## Comparison of the two Times 
 
 ###     TreeSort 
+TreeSort is normally __**O**(n(log(n)))__ as previously showned.\
+Here are some example results of timing given by the program :
+| run # | Time (μs) |
+| ----- | --------- |
+|   1   | 000       |
+|   2   | 000       |
+|   3   | 000       |
 
 ###     c++'s std::sort
-
+Std::Sort should be __**O**()__ .\
+Here are some results to show this : 
+| run # | Time (μs) |
+| ----- | --------- |
+|   1   | 000       |
+|   2   | 000       |
+|   3   | 000       |
 
 
 # Grading
