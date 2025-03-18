@@ -70,12 +70,12 @@ class BST {
 
         }
         TreeNode* copyTree(TreeNode* other){
-            if(!node){
+            if(!other){
                 return nullptr;
             }
             TreeNode* no = new TreeNode(other->data);
             no->left = copyTree(other->left);
-            no->right = copyTree(other->right)
+            no->right = copyTree(other->right);
             return no;
 
         }
