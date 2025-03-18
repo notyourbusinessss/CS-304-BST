@@ -95,13 +95,16 @@ class BST {
             root = new TreeNode(copyTree(other.root));
 
         } 
-        BST& operator=(const BST& other){ // Copy Assignment
+        //###################################################################################################################################################
+        BST& operator=(const BST& other){ // Copy Assignment TO FNISH FOR THE LOVE OF GOD THIS IS WHAT IS WRONG 
             if(this != &other){
                 this->destroyTree();
                 TreeNode* rot = other.root;
                 root = new TreeNode(copyTree(other.root));
             }
         }
+        //###################################################################################################################################################
+
         BST(BST&& other) noexcept{ // Move Constructor
             
         }
