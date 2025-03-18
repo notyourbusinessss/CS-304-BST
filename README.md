@@ -39,7 +39,7 @@ Here are some example results of timing given by the program :
 |   3   | 000       |
 
 ###     c++'s std::sort
-Std::Sort should be __**O**()__ .\
+Std::Sort should be __**O**(n(log(n)))__ much like TreeSort thus we would expect them to have similar outcomes in time.\
 Here are some results to show this : 
 | run # | Time (μs) |
 | ----- | --------- |
