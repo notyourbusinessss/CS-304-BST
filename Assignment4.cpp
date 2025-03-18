@@ -96,7 +96,11 @@ class BST {
 
         } 
         BST& operator=(const BST& other){ // Copy Assignment
-
+            if(this != &other){
+                this->destroyTree();
+                TreeNode* rot = other.root;
+                root = new TreeNode(copyTree(other.root));
+            }
         }
         BST(BST&& other) noexcept{ // Move Constructor
             
@@ -189,6 +193,12 @@ int main(){
     ss.insert("bonjour");
     ss.insert("Konichiwa");
     ss.insert("GutenTag");
+
+    BST<int> G2;
+    G2 = George;
+    std::cout << "tree : " << G2 <<std::endl;   
+
+    std::cout << "-----------------------" << std::endl;
 
     std::cout << "tree : " << George <<std::endl;
     std::cout << "Pre Order : " <<George.preOrderTraversal() << std::endl;
