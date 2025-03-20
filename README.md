@@ -6,6 +6,19 @@ Like so :
 
 The tree works by putting new nodes either on the right or left of the root ( if there isnt a root make it the root ), so if it is bigger make the node connect on the right if it is smaller on the left.
 
+## Table of contents
+- [The Goal](#the-goal)
+    - [What to implement](#what-to-implement)
+        - [Bonus](#bonus)
+- [Time Complexity](#time-complexity)
+    - [Comparison](#comparison-of-the-two-times)
+        - [ TreeSort](#treesort)
+        - [ std::sor()](#cs-stdsort)
+    - [Quick resume](#quick-conclusion)
+- [Grading](#grading)
+- [Files](#the-actual-file)
+
+
 # The Goal
 The goal is to make a Binary search tree that will sort a given array.
 
