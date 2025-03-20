@@ -20,7 +20,7 @@ The tree works by putting new nodes either on the right or left of the root ( if
 
 
 # The Goal
-The goal is to make a Binary search tree that will sort a given array.
+The goal is to make a Binary search tree that will sort a given array called BST. This tree should have a preOrder and Inorder that will output a vector of the traversal. The tree sort should then be compared to the normal std::sort.
 
 ## What to implement 
 1. The big 5 ( destructor, copy constructor/assignment and move constructor/assignment )
