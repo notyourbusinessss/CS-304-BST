@@ -189,15 +189,16 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T> given){
     return os;
 }
 
-
+//Values depend on if it's already a tree or not
 int testTreeSort(){
     srand(time(NULL));
     BST<int> George;
+    auto begTotal = std::chrono::high_resolution_clock::now();
     for(int i = 0 ; i < 10000 ; ++i){
         George.insert(rand());
     }
-    auto begTotal = std::chrono::high_resolution_clock::now();
-    George.inOrderTraversal();
+    //auto begTotal = std::chrono::high_resolution_clock::now();
+    std::vector<int> temp = George.inOrderTraversal();
     auto endTotal = std::chrono::high_resolution_clock::now();
     return std::chrono::duration_cast<std::chrono::microseconds>(endTotal - begTotal).count();
 
