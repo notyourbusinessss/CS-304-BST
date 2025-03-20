@@ -34,12 +34,25 @@ Here is a quick pixaleted tables of the time complexit difference
 
 ###     TreeSort 
 TreeSort is normally __**O**(n(log(n)))__ as previously showned.\
-Here are some example results of timing given by the program :
+Here are some example results of timing given by the program previously ( Note that these values will be different depending on the machine ):\
+Excluding the input of numbers into the tree : 
 | run # | Time (μs) |
 | ----- | --------- |
 |   1   | 216       |
 |   2   | 146       |
 |   3   | 140       |
+
+These values should normally stay around 150 and up to 220 in some cases.
+
+Including the adding of numbers: 
+| run # | Time (μs) |
+| ----- | --------- |
+|   1   | 1445      |
+|   2   | 1487      |
+|   3   | 1466      |
+
+These values roam around 1400 to 1600 in some cases;
+
 
 ###     c++'s std::sort
 Std::Sort should be __**O**(n(log(n)))__ much like TreeSort thus we would expect them to have similar outcomes in time.\
@@ -50,6 +63,10 @@ Here are some results to show this :
 |   2   | 1057      |
 |   3   | 1078      |
 
+These values stay around 1000 to 1500 in some cases.
+
+## Quick Conclusion
+As we cann see the tree sort is marginally faster but it requires it to a already be a tree, if we add the input we can get values similar to sort. So if you work with a numbers that need to be sorted at some point and dont need to be an array or a vector it would be much faster to simply use a tree in the other case where you need it to act like an array tree sort is not as since treesort will require to make a tree and then traverse it which is slightly slower then just std::sort().
 
 # Grading
 
