@@ -37,18 +37,18 @@ TreeSort is normally __**O**(n(log(n)))__ as previously showned.\
 Here are some example results of timing given by the program :
 | run # | Time (μs) |
 | ----- | --------- |
-|   1   | 000       |
-|   2   | 000       |
-|   3   | 000       |
+|   1   | 216       |
+|   2   | 146       |
+|   3   | 140       |
 
 ###     c++'s std::sort
 Std::Sort should be __**O**(n(log(n)))__ much like TreeSort thus we would expect them to have similar outcomes in time.\
 Here are some results to show this : 
 | run # | Time (μs) |
 | ----- | --------- |
-|   1   | 000       |
-|   2   | 000       |
-|   3   | 000       |
+|   1   | 1062      |
+|   2   | 1057      |
+|   3   | 1078      |
 
 
 # Grading
