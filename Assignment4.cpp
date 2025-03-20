@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
+#include <algorithm>
 
 
 
@@ -187,6 +189,32 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T> given){
     return os;
 }
 
+
+int testTreeSort(){
+    srand(time(NULL));
+    BST<int> George;
+    for(int i = 0 ; i < 10000 ; ++i){
+        George.insert(rand());
+    }
+    auto begTotal = std::chrono::high_resolution_clock::now();
+    George.inOrderTraversal();
+    auto endTotal = std::chrono::high_resolution_clock::now();
+    return std::chrono::duration_cast<std::chrono::microseconds>(endTotal - begTotal).count();
+
+}
+    
+int TestNormalSort(){
+    srand(time(NULL));
+    std::vector<int> George;
+    for(int i = 0 ; i < 10000 ; ++i){
+        George.push_back(rand());
+    }
+    auto begTotal = std::chrono::high_resolution_clock::now();
+    std::sort(George.begin(),George.end());
+    auto endTotal = std::chrono::high_resolution_clock::now();
+    return std::chrono::duration_cast<std::chrono::microseconds>(endTotal - begTotal).count();
+    }
+
 int main(){
     int g;
     BST<int> George;
@@ -220,4 +248,8 @@ int main(){
     G2 = George;
     std::cout << "tree : " << G2 <<std::endl;   
     std::cout << "tree : " << George <<std::endl;   
+
+    std::cout << "\n\n\n Let's do some testing \n";
+    std::cout << "tree sort time : \n \t 1 : " << testTreeSort() << " \n \t 2 : "<< testTreeSort()<< " \n \t 3 : "<< testTreeSort() << std::endl;
+    std::cout << "Normal sort time : \n \t 1 : " << TestNormalSort() << " \n \t 2 : "<< TestNormalSort()<< " \n \t 3 : "<< TestNormalSort()<< std::endl;;
 }   
