@@ -44,7 +44,7 @@ Here is a quick pixaleted tables of the time complexit difference
 ![Boo !!!](images/Time.png)
 
 ## Comparison of the two Times 
-
+> The following are numbers are **__VERY DEPENDENT__** of your machine
 ###     TreeSort 
 TreeSort is normally __**O**(n(log(n)))__ as previously showned.\
 Here are some example results of timing given by the program previously ( Note that these values will be different depending on the machine ):\
@@ -90,4 +90,4 @@ and the grading
 # The actual file 
 Here is the file about the Assignment : [Click here for link !](Documents/CS304_A4_treesort.pdf)
 
-Note: there is a problem with it as it says that you can sort with a preorder but you cannot, other then that there is some problem but it's not that bad.
+> Note: there is a problem with it as it says that you can sort with a preorder but you cannot, other then that there is some problem but it's not that bad.
