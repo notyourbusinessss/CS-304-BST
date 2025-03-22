@@ -44,7 +44,7 @@ Here is a quick pixaleted tables of the time complexit difference
 ![Boo !!!](images/Time.png)
 
 ## Comparison of the two Times 
-> The following are numbers are **__VERY DEPENDENT__** of your machine
+> The following numbers are **__VERY DEPENDENT__** of your machine
 ###     TreeSort 
 TreeSort is normally __**O**(n(log(n)))__ as previously showned.\
 Here are some example results of timing given by the program previously ( Note that these values will be different depending on the machine ):\
